@@ -1,0 +1,23 @@
+<h2>שנה את הסיסמה</h2>
+
+<%= form_for @user, url: api_user_password_path(params[:id]) do |f| %>
+
+  <%= f.hidden_field :reset_password_token %>
+
+  <div>
+    <%= f.label :password, "סיסמה חדשה" %><br />
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+    <% end %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation, "הקלד שוב את הסיסמה" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div>
+    <%= f.submit "המשך" %>
+  </div>
+<% end %>
