@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   as :user do 
     post '/api/login' => 'sessions#create'
     delete '/api/logout' => 'sessions#destroy'
+    get '/api/token' => 'sessions#check_token'
   end
 
   namespace :api do

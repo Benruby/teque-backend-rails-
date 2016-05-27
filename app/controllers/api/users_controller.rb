@@ -6,6 +6,7 @@ module Api
 			@user = User.new user_params
 
 			if @user.save
+				token = @user.ensure_authentication_token
 				render json: @user, root: nil
 				UserMailer.signup_confirmation(@user).deliver_now
 			else
