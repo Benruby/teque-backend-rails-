@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     devise_for :users, skip: [:sessions], :controllers => {registrations: 'api/users'}
+    resources :questions
   end
 
 
