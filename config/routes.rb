@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   namespace :api do
     devise_for :users, skip: [:sessions], :controllers => {registrations: 'api/users'}
     resources :questions
+    resources :answers
+    post 'question_upvotes/:id' => 'question_upvotes#create'
+    delete 'question_upvotes/:id' => 'question_upvotes#destroy'
   end
 
 

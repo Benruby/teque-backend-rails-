@@ -1,5 +1,5 @@
-class QuestionSerializer < ActiveModel::Serializer
-  attributes :id, :title, :body, :user_id
+class QuestionSerializer < AllQuestionsSerializer
+  attributes :id, :title, :body, :user_id, :upvotes
 
-  has_one :user
+  has_many :answers
 end

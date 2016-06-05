@@ -6,7 +6,7 @@ module Api
 		def index
 			if current_user
 				@questions = Question.all
-				render json: @questions, root: false
+				render json: @questions, root: false, each_serializer: AllQuestionsSerializer
 			else
 				render json: {}, status: 401
 			end
@@ -24,7 +24,11 @@ module Api
 			end
 		end	
 
-		def edit
+		def show
+			if current_user
+				@question = Question.find_by! id:  params[:id]
+				render json: @question, root: false, serializer: QuestionSerializer
+			end
 		end
 
 		def update

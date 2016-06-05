@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :validatable
 
   has_many :questions
+  has_many :answers
+  has_many :question_upvotes
 
   def ensure_authentication_token
   	self.authentication_token = generate_authentication_token
