@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     devise_for :users, skip: [:sessions], :controllers => {registrations: 'api/users'}
     resources :questions
     resources :answers
+    resources :question_comments
     post 'question_upvotes/:id' => 'question_upvotes#create'
     delete 'question_upvotes/:id' => 'question_upvotes#destroy'
   end

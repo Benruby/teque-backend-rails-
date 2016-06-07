@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602120803) do
+ActiveRecord::Schema.define(version: 20160606074839) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "answer_body"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20160602120803) do
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
   add_index "answers", ["user_id"], name: "index_answers_on_user_id"
+
+  create_table "question_comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.string   "comment_body"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "question_comments", ["question_id"], name: "index_question_comments_on_question_id"
+  add_index "question_comments", ["user_id"], name: "index_question_comments_on_user_id"
 
   create_table "question_upvotes", force: :cascade do |t|
     t.integer  "user_id"

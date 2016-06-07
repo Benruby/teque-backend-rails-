@@ -8,10 +8,10 @@ User.create( full_name: "name5",email: 'e@e.com', password: "12121212")
 
 
 Question.destroy_all
-Question.create!(title: "question 1 -user 1", body: "This the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the question", user_id: 1)
-Question.create!(title: "question 2 -user 1", body: "This the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the question", user_id: 1)
-Question.create!(title: "question 7 -user 1", body: "This the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the question", user_id: 1)
-Question.create!(title: "question 8 -user 1", body: "This the body of the question, This the body of the question This the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the questionThis the body of the question, This the body of the question", user_id: 1)
+Question.create!(title: "question 1 -user 1", body: "This the body of the question,e body of the question, This the bodye question, Thiuestion", user_id: 1)
+Question.create!(title: "question 2 -user 1", body: "This the body of the question,e body of the question, This the bodye question, Thiuestion", user_id: 1)
+Question.create!(title: "question 7 -user 1", body: "This the body of the question,e body of the question, This the bodye question, Thiuestion", user_id: 1)
+Question.create!(title: "question 8 -user 1", body: "This the body of the question,he body of the question, This the bhis the body e questiion", user_id: 1)
 Question.create!(title: "question 9 -user 1", body: "This the body of the question, This the body of the question", user_id: 1)
 Question.create!(title: "question 3 -user 2", body: "This the body of the question, This the body of the question", user_id: 2)
 Question.create!(title: "question 4 -user 2", body: "This the body of the question, This the body of the question", user_id: 2)
@@ -38,3 +38,18 @@ Answer.create!(answer_body: "answer body - some text, answer body - some text, a
 Answer.create!(answer_body: "answer body - some text, answer body - some text, answer body - some text,", user_id: 1 , question_id: 9)
 Answer.create!(answer_body: "answer body - some text, answer body - some text, answer body - some text,", user_id: 1 , question_id: 9)
 Answer.create!(answer_body: "answer body - some text, answer body - some text, answer body - some text,", user_id: 1 , question_id: 9)
+
+QuestionComment.destroy_all
+QuestionComment.create!(comment_body: "this is the comment.....", user_id: "1", question_id:"1")
+QuestionComment.create!(comment_body: "this is the comment.....", user_id: "1", question_id:"1")
+QuestionComment.create!(comment_body: "this is the comment.....", user_id: "1", question_id:"1")
+QuestionComment.create!(comment_body: "this is the comment.....", user_id: "1", question_id:"1")
+QuestionComment.create!(comment_body: "this is the comment.....", user_id: "2", question_id:"1")
+QuestionComment.create!(comment_body: "this is the comment.....", user_id: "2", question_id:"2")
+QuestionComment.create!(comment_body: "this is the comment.....", user_id: "2", question_id:"2")
+QuestionComment.create!(comment_body: "this is the comment.....", user_id: "2", question_id:"2")
+QuestionComment.create!(comment_body: "this is the comment.....", user_id: "1", question_id:"3")
+QuestionComment.create!(comment_body: "this is the comment.....", user_id: "1", question_id:"3")
+QuestionComment.create!(comment_body: "this is the comment.....", user_id: "1", question_id:"3")
+QuestionComment.create!(comment_body: "this is the comment.....", user_id: "1", question_id:"4")
+QuestionComment.create!(comment_body: "this is the comment.....", user_id: "1", question_id:"4")
