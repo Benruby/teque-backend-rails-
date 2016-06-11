@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     post '/api/login' => 'sessions#create'
     delete '/api/logout' => 'sessions#destroy'
     get '/api/token' => 'sessions#check_token'
+    get '/api/users' => 'api/users#show'
+    put '/api/users' => 'api/users#update'
+    post '/api/check_password' => 'api/passwords#check_password'
+    put '/api/users/update_password' => 'api/passwords#password_update'
   end
 
   namespace :api do
