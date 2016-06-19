@@ -30,6 +30,8 @@ class ApplicationController < ActionController::Base
   	user  = token && User.find_by_authentication_token(token.to_s)
   	if user
   		sign_in user, store: false
+    else
+      render nothing: true, status: 401
   	end
   end
 end

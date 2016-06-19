@@ -3,20 +3,9 @@ module Api
 
 		before_filter :authenticate_user_from_token!
 
-		def index
-			if current_user
-				@answers = Answer.where(answer_params[:question_id])
-				render json: @answer, root: false
-			end
-		end
-
 		def create
-			if current_user
-				current_user.answers.create(answer_params)
-				render nothing: true
-			else
-				render json: {}, status: 401
-			end
+			current_user.answers.create(answer_params)
+			render nothing: true,  status: 201
 		end	
 
 		private

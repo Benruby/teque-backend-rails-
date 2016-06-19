@@ -4,35 +4,20 @@ module Api
 		before_filter :authenticate_user_from_token!
 
 		def index
-			if current_user
-				@questions = Question.all
-				render json: @questions, root: false, each_serializer: AllQuestionsSerializer
-			else
-				render json: {}, status: 401
-			end
-		end
-
-		def new
+				questions = Question.all
+				render json: questions, root: false, each_serializer: AllQuestionsSerializer
 		end
 
 		def create
-			if current_user
 				current_user.questions.create(questions_params)
-				render nothing: true
-			else
-				render json: {}, status: 401
-			end
+				render nothing: true, status: 201
 		end	
 
 		def show
-			if current_user
 				@question = Question.find_by! id:  params[:id]
-				render json: @question, root: false, serializer: QuestionSerializer
-			end
+				render json: @question, root: false, serializer: QuestionSerializer	
 		end
 
-		def update
-		end
 
 		private
 

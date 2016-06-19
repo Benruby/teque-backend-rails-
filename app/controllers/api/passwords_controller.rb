@@ -7,7 +7,7 @@ module Api
 		end
 
 		def create
-			user = User.find_by_email(params[:email])
+			user = User.find_by_email(reset_password_params[:email])
 			user.send_password_reset if user
 			render nothing: true
 		end	
@@ -17,13 +17,12 @@ module Api
 		end
 
 		def update
-			@user = User.find_by_reset_password_token!(params[:user][:reset_password_token])		
+			@user = User.find_by_reset_password_token!(reset_password_params[:reset_password_token])		
 			if @user.reset_password_sent_at <2.hours.ago
 				flash[:error] = "פג תוקף הלינק לחידוש סיסמה. אנא בקש חדש"
 				redirect_to :edit
 			elsif @user.update_attributes(update_password)
 				flash[:success] = "הסיסמה עודכנה בהצלחה."
-				#redirect to homepgae in the future
 				render "successful_password.html.erb"	
 			else
 				flash[:error] = "סיסמאות לא זהות, נסה שנית"
@@ -33,13 +32,13 @@ module Api
 
 		def password_update
 			user = current_user
-			user.update_attributes(password_params)
+			user.update_attributes(reset_password_params)
 			render json: {message: "password update was successful"}
 		end
 
 		def check_password
 			user = current_user
-			if user.valid_password?(params[:password])
+			if user.valid_password?(reset_password_params[:password])
 				render json: {message: "valid password"}, status: 200
 			else
 				render json: {message: "INVALID password"}, status: 403
@@ -48,12 +47,8 @@ module Api
 
 		private
 
-		def update_password
-			params.require(:user).permit(:password, :password_confirmation)
-		end
-
-		def password_params
-			params.require(:user).permit(:password)
+		def reset_password_params
+			params.require(:user).permit(:email, :password, :password_confirmation, :reset_password_token)
 		end
 	end
 end
