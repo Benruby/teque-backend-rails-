@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160607130254) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
     t.string   "answer_body"
     t.integer  "user_id"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20160607130254) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
-  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
 
   create_table "question_comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -32,8 +35,8 @@ ActiveRecord::Schema.define(version: 20160607130254) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "question_comments", ["question_id"], name: "index_question_comments_on_question_id"
-  add_index "question_comments", ["user_id"], name: "index_question_comments_on_user_id"
+  add_index "question_comments", ["question_id"], name: "index_question_comments_on_question_id", using: :btree
+  add_index "question_comments", ["user_id"], name: "index_question_comments_on_user_id", using: :btree
 
   create_table "question_upvotes", force: :cascade do |t|
     t.integer  "user_id"
@@ -42,8 +45,8 @@ ActiveRecord::Schema.define(version: 20160607130254) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "question_upvotes", ["question_id"], name: "index_question_upvotes_on_question_id"
-  add_index "question_upvotes", ["user_id"], name: "index_question_upvotes_on_user_id"
+  add_index "question_upvotes", ["question_id"], name: "index_question_upvotes_on_question_id", using: :btree
+  add_index "question_upvotes", ["user_id"], name: "index_question_upvotes_on_user_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.string   "title"
@@ -72,7 +75,7 @@ ActiveRecord::Schema.define(version: 20160607130254) do
     t.string   "description"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
