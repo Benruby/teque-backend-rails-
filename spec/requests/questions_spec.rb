@@ -37,17 +37,18 @@ RSpec.describe "Questions API", type: :request do
 			question_params = {
 				question: {
 					title: "question title",
-					body: "question body",
-					user_id: "1"
+					body: "question body"
 				}
 				}.to_json
+
+				before_count = Question.count
 
 				post '/api/questions', question_params, request_headers
 				expect(response.status).to eq 201
 				a = Question.first
 				expect(a.title).to eq "question title"
 				expect(a.body).to eq  "question body"
-				expect(a.user_id).to eq 1
+				expect(Question.count).not_to eq(before_count)
 
 			end
 

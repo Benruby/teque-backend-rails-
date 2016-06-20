@@ -7,7 +7,8 @@ describe "Password Reset API" do
 
       user_params = {
         user: {
-          email: user.email
+          full_name: user.full_name,
+          email: user.email,
         }
         }.to_json
 

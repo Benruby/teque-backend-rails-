@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
 
+  validates :full_name, presence: true
+  validates :email, presence: true
+
   has_many :questions
   has_many :question_comments
   has_many :answers

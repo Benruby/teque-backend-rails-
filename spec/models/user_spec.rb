@@ -18,6 +18,14 @@ describe User do
 			user.send_password_reset
 			last_email.to.should include(user.email)
 		end
+		it { should validate_presence_of(:full_name) }
+		it { should validate_presence_of(:email) }
+		it { should validate_presence_of(:password) }
+		
+		it { should have_many(:questions) }
+		it { should have_many(:question_comments) }
+		it { should have_many(:answers) }
+		it { should have_many(:question_upvotes) }
 
 	end 
 end
