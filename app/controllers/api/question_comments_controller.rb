@@ -9,26 +9,10 @@ module Api
 		end
 
 		def create
-			if current_user
 				current_user.question_comments.create(comment_params)
 				render nothing: true
-			else
-				render json: {message: "error"}
-			end
 		end
 
-
-		# def destroy
-		# 	if current_user
-		# 		current_user.question_upvotes.where(question_id: params[:id]).destroy_all
-		# 		question = Question.find_by! id: params[:id]
-		# 		question.downvote
-		# 		render json: question
-		# 	else
-		# 		render json: {message: "error"}
-		# 	end	
-
-		# end
 		private
 
 		def comment_params

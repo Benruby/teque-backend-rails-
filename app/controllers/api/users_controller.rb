@@ -18,14 +18,12 @@ module Api
 		end
 
 		def show
-			user = current_user
-			render json: user, root: false
+			render json: current_user, root: false
 		end
 
 		def update
-			user = current_user
-			user.update(user_params)
-			render json: user, root: false		
+			current_user.update(user_params)
+			render json: current_user, root: false		
 		end
 
 		private

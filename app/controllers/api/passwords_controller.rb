@@ -1,7 +1,7 @@
 module Api
 	class PasswordsController < ApplicationController
 
-		before_filter :authenticate_user_from_token!, except: [:update, :create]
+		before_filter :authenticate_user_from_token!, except: [:update, :create, :edit]
 
 		def new
 		end
@@ -21,7 +21,7 @@ module Api
 			if @user.reset_password_sent_at <2.hours.ago
 				flash[:error] = "פג תוקף הלינק לחידוש סיסמה. אנא בקש חדש"
 				redirect_to :edit
-			elsif @user.update_attributes(update_password)
+			elsif @user.update_attributes(reset_password_params)
 				flash[:success] = "הסיסמה עודכנה בהצלחה."
 				render "successful_password.html.erb"	
 			else
@@ -31,14 +31,12 @@ module Api
 		end
 
 		def password_update
-			user = current_user
-			user.update_attributes(reset_password_params)
+			current_user.update_attributes(reset_password_params)
 			render json: {message: "password update was successful"}
 		end
 
 		def check_password
-			user = current_user
-			if user.valid_password?(reset_password_params[:password])
+			if current_user.valid_password?(reset_password_params[:password])
 				render json: {message: "valid password"}, status: 200
 			else
 				render json: {message: "INVALID password"}, status: 403

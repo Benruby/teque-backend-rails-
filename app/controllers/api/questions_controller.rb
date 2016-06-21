@@ -9,8 +9,8 @@ module Api
 		end
 
 		def create
-				current_user.questions.create(questions_params)
-				render nothing: true, status: 201
+				question = current_user.questions.create(questions_params)
+				render json: question, status: 201
 		end	
 
 		def show
