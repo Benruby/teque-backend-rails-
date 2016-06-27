@@ -4,7 +4,11 @@ module Api
 		before_filter :authenticate_user_from_token!
 
 		def index
-				questions = Question.all
+				questions = Question.all.order(created_at: :desc)
+
+				if params[:page]
+					questions = questions.page(params[:page]).per(10)
+				end
 				render json: questions, root: false, each_serializer: AllQuestionsSerializer
 		end
 
