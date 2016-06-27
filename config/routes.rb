@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :question_comments
     post 'question_upvotes/:id' => 'question_upvotes#create'
     delete 'question_upvotes/:id' => 'question_upvotes#destroy'
+    get 'user_questions' => 'questions#user_questions'
   end
 
 

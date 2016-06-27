@@ -18,6 +18,11 @@ module Api
 				render json: @question, root: false, serializer: QuestionSerializer	
 		end
 
+		def user_questions
+			@questions = current_user.questions
+			render json: @questions, root: false
+		end
+
 
 		private
 
