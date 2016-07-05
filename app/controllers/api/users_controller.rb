@@ -23,13 +23,14 @@ module Api
 
 		def update
 			current_user.update(user_params)
+			binding.pry
 			render json: current_user, root: false		
 		end
 
 		private
 
 		def user_params
-			params.require(:user).permit(:full_name, :email, :password, :password_confirmation, :description)
+			params.require(:user).permit(:full_name, :email, :password, :password_confirmation, :description, :user_image)
 		end
 	end
 
