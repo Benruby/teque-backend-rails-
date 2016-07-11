@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :question_comments
   has_many :answers
   has_many :question_upvotes
+  has_many :reports, as: :reportable
 
   def ensure_authentication_token
   	self.authentication_token = generate_authentication_token

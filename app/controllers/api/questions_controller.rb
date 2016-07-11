@@ -7,7 +7,7 @@ module Api
 				questions = Question.all.order(created_at: :desc)
 
 				if params[:page]
-					questions = questions.page(params[:page]).per(10)
+					questions = questions.page(params[:page]).per(5)
 				end
 				render json: questions, root: false, each_serializer: AllQuestionsSerializer
 		end

@@ -8,6 +8,7 @@ class Question < ActiveRecord::Base
 	has_many :answers
 	has_many :question_upvotes
 	has_many :question_comments
+	has_many :reports, as: :reportable
 
 
 	def upvote

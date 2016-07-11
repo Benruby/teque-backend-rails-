@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users, only: []
 
   as :user do 
@@ -17,9 +19,11 @@ Rails.application.routes.draw do
     resources :questions
     resources :answers
     resources :question_comments
+    resources :reports, only: [:create]
     post 'question_upvotes/:id' => 'question_upvotes#create'
     delete 'question_upvotes/:id' => 'question_upvotes#destroy'
     get 'user_questions' => 'questions#user_questions'
+    get 'report_options' => 'report_options#index'
   end
 
 
