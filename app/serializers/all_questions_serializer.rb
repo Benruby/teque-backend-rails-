@@ -4,4 +4,5 @@ class AllQuestionsSerializer < ActiveModel::Serializer
 	has_many :question_upvotes
 	has_many :answers
 	has_many :reports, as: :reportable
+	has_many :item_comments, as: :commentable
 end

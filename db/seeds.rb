@@ -65,4 +65,6 @@ QuestionComment.create!(comment_body: "במינים יחידאיים, כל נק�
 QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "1", question_id:"3")
 QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "1", question_id:"3")
 QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "1", question_id:"4")
-QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "1", question_id:"4")AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "1", question_id:"4")
+
+AdminUser.create!(email: 'ben@admin.com', password: 'password', password_confirmation: 'password')
