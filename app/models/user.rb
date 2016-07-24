@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  attr_accessor :followed
+  attr_accessor :follower_count
+
   has_attached_file :avatar
 
   devise :database_authenticatable, :registerable,
@@ -16,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :question_upvotes
   has_many :reports, as: :reportable
   has_many :item_comments, as: :commentable
+  has_many :followers, as: :followable
 
   def ensure_authentication_token
   	self.authentication_token = generate_authentication_token
@@ -34,6 +39,15 @@ class User < ActiveRecord::Base
   	begin
   		self[column] = SecureRandom.urlsafe_base64
   	end while User.exists?(column => self[column])
+  end
+
+  def is_followed?(id)
+      if self.followers.where(user_id: id).empty?
+        self.followed = false;
+      else
+        self.follower_count = self.followers.count
+        self.followed = true;
+      end
   end
 
   private

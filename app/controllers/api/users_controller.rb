@@ -18,11 +18,12 @@ module Api
 		end
 
 		def show
-			render json: current_user, root: false
+			user = User.find_by_id(params[:id])
+			user.is_followed?(current_user.id)
+			render json: user, root: false, serializer: ShowUserSerializer
 		end
 
 		def update
-			# binding.pry
 			current_user.update(user_params)
 			render json: current_user, root: false		
 		end
@@ -30,7 +31,7 @@ module Api
 		private
 
 		def user_params
-			params.require(:user).permit(:full_name, :email, :password, :password_confirmation, :description, :avatar)
+			params.require(:user).permit(:full_name, :email, :password, :password_confirmation, :description, :avatar, :id)
 		end
 	end
 

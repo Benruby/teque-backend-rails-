@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :answers
     resources :item_comments, only: [:create, :index]
     resources :reports, only: [:create]
+    resources :followers, only: [:create, :destroy]
     post 'question_upvotes/:id' => 'question_upvotes#create'
     delete 'question_upvotes/:id' => 'question_upvotes#destroy'
     get 'user_questions' => 'questions#user_questions'
