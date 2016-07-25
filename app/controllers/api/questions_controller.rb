@@ -19,7 +19,10 @@ module Api
 		end
 
 		def create
-			question = current_user.questions.create(questions_params)
+			question = current_user.questions.new(questions_params)
+			if question.save
+				question.notify_followers(current_user)
+			end
 			render json: question, status: 201
 		end	
 

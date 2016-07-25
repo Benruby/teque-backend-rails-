@@ -10,7 +10,6 @@ class Question < ActiveRecord::Base
 	belongs_to :user
 	has_many :answers
 	has_many :question_upvotes
-	has_many :question_comments
 	has_many :reports, as: :reportable
 	has_many :item_comments, as: :commentable
 	has_many :followers, as: :followable
@@ -38,4 +37,14 @@ class Question < ActiveRecord::Base
 		self.follower_count = self.followers.count
 	end
 
-end
+	def notify_followers(user)
+		followers = Follower.where(followable: user)
+		if followers.empty?
+		else
+			followers.each do |f| 
+				Notification.create(notifiable: self, user_id: f.user_id)
+			end
+		end
+	end
+
+	end

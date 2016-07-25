@@ -9,6 +9,8 @@ class Report < ActiveRecord::Base
 			return Answer.find(params[:reportable_id])
 		when "question"
 			return Question.find(params[:reportable_id])
+		when "comment"
+			return ItemComment.find(params[:reportable_id])
 		else
 			return "no valid type"
 		end

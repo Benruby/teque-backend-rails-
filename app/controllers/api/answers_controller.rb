@@ -4,7 +4,10 @@ module Api
 		before_filter :authenticate_user_from_token!
 
 		def create
-			current_user.answers.create(answer_params)
+			answer = current_user.answers.new(answer_params)
+			if answer.save
+				answer.notify_followers(current_user)
+			end
 			render nothing: true,  status: 201
 		end	
 

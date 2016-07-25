@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :item_comments, only: [:create, :index]
     resources :reports, only: [:create]
     resources :followers, only: [:create, :destroy]
+    resources :notifications, only: [:index, :update]
     post 'question_upvotes/:id' => 'question_upvotes#create'
     delete 'question_upvotes/:id' => 'question_upvotes#destroy'
     get 'user_questions' => 'questions#user_questions'
