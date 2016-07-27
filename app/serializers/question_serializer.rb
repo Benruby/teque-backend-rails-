@@ -3,4 +3,5 @@ class QuestionSerializer < AllQuestionsSerializer
 
   has_many :answers
   has_many :question_upvotes
+  has_one :user
 end

@@ -9,7 +9,18 @@ module Api
 		end
 
 		def update
-			
+			notification = Notification.find_by_id(notification_params[:id])
+			# binding.pry
+			notification.seen = true
+
+			notification.save
+			render nothing: true
+		end
+
+		private
+
+		def notification_params
+			params.require(:notification).permit(:id)
 		end
 	end
 end
