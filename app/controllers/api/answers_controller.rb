@@ -11,6 +11,11 @@ module Api
 			render nothing: true,  status: 201
 		end	
 
+		def user_answers
+			answers = current_user.answers.includes(:question)
+			render json: answers, root: false, each_serializer: UserAnswersSerializer
+		end
+
 		private
 
 		def answer_params

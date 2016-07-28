@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     post 'question_upvotes/:id' => 'question_upvotes#create'
     delete 'question_upvotes/:id' => 'question_upvotes#destroy'
     get 'user_questions' => 'questions#user_questions'
+    get 'user_answers' => 'answers#user_answers'
     get 'report_options' => 'report_options#index'
   end
 
