@@ -2,7 +2,7 @@ module Api
 
 	class UsersController < Devise::RegistrationsController
 
-		before_filter :authenticate_user_from_token!, except: :create
+		before_filter :authenticate_user_from_token!, except: [:create, :show]
 		skip_before_filter :authenticate_scope!, only: [:update]
 
 		def create
@@ -19,7 +19,9 @@ module Api
 
 		def show
 			user = User.find_by_id(params[:id])
-			user.is_followed?(current_user.id)
+			if current_user
+				user.is_followed?(current_user.id)
+			end
 			render json: user, root: false, serializer: ShowUserSerializer
 		end
 

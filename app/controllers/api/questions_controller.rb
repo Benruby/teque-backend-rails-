@@ -1,7 +1,7 @@
 module Api
 	class QuestionsController < ApplicationController
 
-		before_filter :authenticate_user_from_token!
+		before_filter :authenticate_user_from_token!, except: [:show]
 
 		def index
 			questions = Question.all.order(created_at: :desc)
