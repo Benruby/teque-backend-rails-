@@ -27,8 +27,8 @@ module Api
 		end	
 
 		def show
-			@question = Question.find_by! id:  params[:id]
-			render json: @question, root: false, serializer: QuestionSerializer	
+			question = Question.find_by! id:  params[:id]
+			render json: question, root: false, status: 200, serializer: QuestionSerializer	
 		end
 
 		def user_questions

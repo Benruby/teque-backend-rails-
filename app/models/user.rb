@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :item_comments, as: :commentable
   has_many :followers, as: :followable
   has_many :notifications, as: :notifiable
+  has_many :bug_reports
 
   def ensure_authentication_token
   	self.authentication_token = generate_authentication_token

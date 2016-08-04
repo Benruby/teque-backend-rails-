@@ -14,4 +14,9 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, :subject => "איפוס סיסמה - Teque"
   end
+
+  def notify_admin(contact)
+    @contact = contact
+    mail to: ENV["ADMIN_EMAIL"], :subject => "new contact from Teque"
+  end
 end

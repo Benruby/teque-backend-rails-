@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     resources :reports, only: [:create]
     resources :followers, only: [:create, :destroy]
     resources :notifications, only: [:index, :update]
+    resources :bug_reports, only: [:create]
+    resources :contacts, only: [:create]
     post 'question_upvotes/:id' => 'question_upvotes#create'
     delete 'question_upvotes/:id' => 'question_upvotes#destroy'
     get 'user_questions' => 'questions#user_questions'
