@@ -10,6 +10,7 @@ gem 'activeadmin', github: 'activeadmin'
 
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
+gem 'newrelic_rpm'
 # gem "meta_search", '>= 1.1.0.pre'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
