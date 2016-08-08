@@ -1,6 +1,6 @@
 class SessionsController <  Devise::SessionsController
 
-	before_filter :authenticate_user_from_token!, except: [:create]
+	before_filter :authenticate_user_from_token!, except: [:create, :check_token]
 	skip_before_filter :verify_signed_out_user, only: :destroy
 
 	def create
