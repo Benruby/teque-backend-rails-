@@ -1,21 +1,33 @@
 module Api
 	class QuestionsController < ApplicationController
 
-		before_filter :authenticate_user_from_token!, except: [:show]
+		before_filter :authenticate_user_from_token!, except: [:show, :index]
 
 		def index
+
 			questions = Question.all.order(created_at: :desc)
 
 			if params[:page]
 				questions = questions.page(params[:page]).per(7)
 			end
 
-			questions.each do |q|
-				q.followed_by_current_user(current_user.id)
-				q.add_followers_count
+			signed_user = get_user
+			if signed_user
+				questions.each do |q|
+					q.followed_by_current_user(signed_user.id)
+					q.add_followers_count
+				end
 			end
 
 			render json: questions, root: false, each_serializer: AllQuestionsSerializer
+		end
+
+		def get_user
+			if current_user
+				return current_user
+			else
+				return false
+			end
 		end
 
 		def create
