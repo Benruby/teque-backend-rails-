@@ -51,20 +51,4 @@ Answer.create!(answer_body: "קיימים כ-20,000 מינים של דבורים
 Answer.create!(answer_body: "קיימים כ-20,000 מינים של דבורים, והן נפוצות בכל היבשות, למעט אנטארקטיקה. בישראל קיימים למעלה מאלף מינים של דבורים, שחלק גדול מהם ככל הנראה עדיין לא תואר למדע. ", user_id: 5 , question_id: 4)
 Answer.create!(answer_body: "קיימים כ-20,000 מינים של דבורים, והן נפוצות בכל היבשות, למעט אנטארקטיקה. בישראל קיימים למעלה מאלף מינים של דבורים, שחלק גדול מהם ככל הנראה עדיין לא תואר למדע. ", user_id: 5 , question_id: 5)
 
-
-QuestionComment.destroy_all
-QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "1", question_id:"1")
-QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "1", question_id:"1")
-QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "1", question_id:"1")
-QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "1", question_id:"1")
-QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "2", question_id:"1")
-QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "2", question_id:"2")
-QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "2", question_id:"2")
-QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "2", question_id:"2")
-QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "1", question_id:"3")
-QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "1", question_id:"3")
-QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "1", question_id:"3")
-QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "1", question_id:"4")
-QuestionComment.create!(comment_body: "במינים יחידאיים, כל נקבה בונה קן משל עצמה, מאחסנת בו צוף ואבקה שהיא אספה, ומטילה בו את ביציה.", user_id: "1", question_id:"4")
-
 AdminUser.create!(email: 'ben@admin.com', password: 'password', password_confirmation: 'password')
