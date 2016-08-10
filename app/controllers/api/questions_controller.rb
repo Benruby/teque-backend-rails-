@@ -13,6 +13,7 @@ module Api
 
 			signed_user = get_user
 			if signed_user
+
 				questions.each do |q|
 					q.followed_by_current_user(signed_user.id)
 					q.add_followers_count
@@ -23,11 +24,12 @@ module Api
 		end
 
 		def get_user
-			if current_user
+			# if current_user
+			authenticate_user_from_token!
 				return current_user
-			else
-				return false
-			end
+			# else
+			# 	return false
+			# end
 		end
 
 		def create

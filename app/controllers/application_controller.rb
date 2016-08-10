@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   	if user
   		sign_in user, store: false
     else
-      render nothing: true, status: 401
+      return false
   	end
   end
 end
