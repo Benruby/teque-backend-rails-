@@ -11,7 +11,7 @@ module Api
 				questions = questions.page(params[:page]).per(7)
 			end
 
-			signed_user = get_user
+			signed_user = get_current_user
 			if signed_user
 
 				questions.each do |q|
@@ -21,15 +21,6 @@ module Api
 			end
 
 			render json: questions, root: false, each_serializer: AllQuestionsSerializer
-		end
-
-		def get_user
-			# if current_user
-			authenticate_user_from_token!
-				return current_user
-			# else
-			# 	return false
-			# end
 		end
 
 		def create

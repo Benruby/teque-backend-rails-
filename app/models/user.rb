@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
 
   def is_followed?(id)
       if self.followers.where(user_id: id).empty?
+        self.follower_count = self.followers.count
         self.followed = false;
       else
         self.follower_count = self.followers.count

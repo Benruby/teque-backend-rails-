@@ -32,6 +32,11 @@ class ApplicationController < ActionController::Base
   		sign_in user, store: false
     else
       return false
-  	end
+    end
+  end
+
+  def get_current_user
+    authenticate_user_from_token!
+    return current_user
   end
 end

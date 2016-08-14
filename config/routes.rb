@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get '/api/users' => 'api/users#show'
     put '/api/users' => 'api/users#update'
     post '/api/check_password' => 'api/passwords#check_password'
+    get '/api/check_id' => 'api/users#check_if_current_user'
     put '/api/users/update_password' => 'api/passwords#password_update'
   end
 

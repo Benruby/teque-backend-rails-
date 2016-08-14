@@ -16,18 +16,33 @@ module Api
 				render json: { errors:@user.errors }, status: :unprocessable_entity
 			end
 		end
-
+#show has few functionalities:
+#1. show current_user to settings page
+#2. show other user to profile page
+#3. if current user - see  number of followers.
+# 					see number of people you follow
+#4. if other user, see number of followers
 		def show
 			user = User.find_by_id(params[:id])
-			if current_user
-				user.is_followed?(current_user.id)
-			end
+			current_user = get_current_user
+			user.is_followed?(current_user.id)
 			render json: user, root: false, serializer: ShowUserSerializer
 		end
 
 		def update
 			current_user.update(user_params)
 			render json: current_user, root: false		
+		end
+
+		def check_if_current_user
+			requested_user = JSON.parse(params[:user])
+			user = User.find(requested_user['id'])
+			if current_user.id == user.id
+				render nothing:true, status: 401
+			else
+				render nothing:true, status: 200
+			end
+
 		end
 
 		private
