@@ -12,7 +12,7 @@ module Api
 		end	
 
 		def user_answers
-			answers = current_user.answers.includes(:question)
+			answers = current_user.answers
 			render json: answers, root: false, each_serializer: UserAnswersSerializer
 		end
 

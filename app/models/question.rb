@@ -8,11 +8,11 @@ class Question < ActiveRecord::Base
 	validates :body, length: { maximum: 250 }
 
 	belongs_to :user
-	has_many :answers
-	has_many :question_upvotes
+	has_many :answers,:dependent => :destroy
+	has_many :question_upvotes,:dependent => :destroy
 	has_many :reports, as: :reportable
-	has_many :item_comments, as: :commentable
-	has_many :followers, as: :followable
+	has_many :item_comments, as: :commentable,:dependent => :destroy
+	has_many :followers, as: :followable,:dependent => :destroy
 
 
 	def upvote
